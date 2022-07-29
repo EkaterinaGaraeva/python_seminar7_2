@@ -13,16 +13,16 @@ def button_click():
     x = m.calc_menu()
     while x != 4:
         if x == 2: 
-            s = 'Имя пользователя: ' + name + '; ' + 'Выполняемые действия: ' + 'рациональные числа'
             a = view.get_value()
             result = r.my_eval(a)
             o.output_of_result(a, result)
+            s = 'Имя пользователя: ' + name + '; ' + 'Выражение: ' + a + '; ' 'Результат: ' + result
             log.log_data(s)
         elif x == 3: 
-            s = 'Имя пользователя: ' + name + '; ' + 'Выполняемые действия:  ' + 'комплексные числа'
             a = view.get_value()
             result = c.my_eval_complex(a)
             o.output_of_result(a, result)
+            s = 'Имя пользователя: ' + name + '; ' + 'Выражение: ' + a + '; ' 'Результат: ' + result
             log.log_data(s)
         x = m.calc_menu()
     else:
