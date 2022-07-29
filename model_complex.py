@@ -52,11 +52,18 @@ def calculation(list_of_numbers):
     while '-' in list_of_numbers:
         for i in range(len(list_of_numbers)):
             if (list_of_numbers[i]) == "-":
-                result = complex(list_of_numbers[i-1]) - complex(list_of_numbers[i+1])
-                list_of_numbers[i-1] = result
-                list_of_numbers.pop(i+1)
-                list_of_numbers.pop(i)
-                break
+                try:
+                    result = complex(list_of_numbers[i-1]) - complex(list_of_numbers[i+1])
+                    list_of_numbers[i-1] = result
+                    list_of_numbers.pop(i+1)
+                    list_of_numbers.pop(i)
+                    break
+                except ValueError:
+                    result = 0 - float(list_of_numbers[i + 1])
+                    list_of_numbers[i - 1] = result
+                    list_of_numbers.pop(i + 1)
+                    list_of_numbers.pop(i)
+                    break
     while '+' in list_of_numbers:
         for i in range(len(list_of_numbers)):
             if (list_of_numbers[i]) == "+":
@@ -95,9 +102,9 @@ def parentheses(list_of_numbers):
     return result
 
 
-# str_one = '(12+3j)^(2+4j)'
+# str_one = '(-12+3j)*(-2+4j)'
 # numbers_one = list_of_numbers_and_operations(str_one)
 # print(f'{str_one} => {parentheses(numbers_one)}')
 
-# str_five2 = '(2+2j)*(2+2j)'
+# str_five2 = '(-12+3j)*(-2+4j)'
 # print(f'С функцией eval: {str_five2} => {eval(str_five2)}')
